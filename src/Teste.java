@@ -28,7 +28,7 @@ public class Teste {
 //	private String[] unidadesVolume = { "L", "mL" };
 //    private String[] unidadesPeso = { "Kg", "g" };
 
-	private JFrame frame;
+	private JFrame frmGeradorDeCustos;
 	private JTextField txtNome;
 	private JTextField txtQuantidadeComprada;
 	private JTextField txtValorComprado;
@@ -43,7 +43,7 @@ public class Teste {
 			public void run() {
 				try {
 					Teste window = new Teste();
-					window.frame.setVisible(true);
+					window.frmGeradorDeCustos.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -63,98 +63,99 @@ public class Teste {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 598, 522);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmGeradorDeCustos = new JFrame();
+		frmGeradorDeCustos.setTitle("Gerador de custos");
+		frmGeradorDeCustos.setBounds(100, 100, 598, 522);
+		frmGeradorDeCustos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGeradorDeCustos.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Nome");
 		lblNewLabel.setBounds(10, 33, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
+		frmGeradorDeCustos.getContentPane().add(lblNewLabel);
 
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtNome.setBounds(10, 48, 86, 20);
-		frame.getContentPane().add(txtNome);
+		frmGeradorDeCustos.getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 
-		JComboBox cbUnidadeComprada = new JComboBox();
-		cbUnidadeComprada.setModel(new DefaultComboBoxModel(new String[] { "Kg", "g" }));
+		JComboBox<String> cbUnidadeComprada = new JComboBox<String>();
+		cbUnidadeComprada.setModel(new DefaultComboBoxModel<String>(new String[] { "Kg", "g" }));
 		cbUnidadeComprada.setBounds(209, 30, 78, 20);
-		frame.getContentPane().add(cbUnidadeComprada);
+		frmGeradorDeCustos.getContentPane().add(cbUnidadeComprada);
 
-		JComboBox cbUnidadeUsada = new JComboBox();
-		cbUnidadeUsada.setModel(new DefaultComboBoxModel(new String[] { "Kg", "g" }));
+		JComboBox<String> cbUnidadeUsada = new JComboBox<String>();
+		cbUnidadeUsada.setModel(new DefaultComboBoxModel<String>(new String[] { "Kg", "g" }));
 		cbUnidadeUsada.setBounds(397, 30, 78, 20);
-		frame.getContentPane().add(cbUnidadeUsada);
+		frmGeradorDeCustos.getContentPane().add(cbUnidadeUsada);
 
 //escolha do tipo de unidade
-		JComboBox cbTipo = new JComboBox();
+		JComboBox<String> cbTipo = new JComboBox<String>();
 		cbTipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (cbTipo.getSelectedItem().equals("SÓLIDO")) {
-					cbUnidadeComprada.setModel(new DefaultComboBoxModel(new String[] { "Kg", "g" }));
-					cbUnidadeUsada.setModel(new DefaultComboBoxModel(new String[] { "Kg", "g" }));
+					cbUnidadeComprada.setModel(new DefaultComboBoxModel<String>(new String[] { "Kg", "g" }));
+					cbUnidadeUsada.setModel(new DefaultComboBoxModel<String>(new String[] { "Kg", "g" }));
 				} else {
-					cbUnidadeComprada.setModel(new DefaultComboBoxModel(new String[] { "L", "mL" }));
-					cbUnidadeUsada.setModel(new DefaultComboBoxModel(new String[] { "L", "mL" }));
+					cbUnidadeComprada.setModel(new DefaultComboBoxModel<String>(new String[] { "L", "mL" }));
+					cbUnidadeUsada.setModel(new DefaultComboBoxModel<String>(new String[] { "L", "mL" }));
 				}
 
 			}
 		});
-		cbTipo.setModel(new DefaultComboBoxModel(new String[] { "S\u00D3LIDO", "L\u00CDQUIDO" }));
+		cbTipo.setModel(new DefaultComboBoxModel<String>(new String[] { "S\u00D3LIDO", "L\u00CDQUIDO" }));
 
 		cbTipo.setBounds(106, 47, 91, 22);
-		frame.getContentPane().add(cbTipo);
+		frmGeradorDeCustos.getContentPane().add(cbTipo);
 
 		JLabel lblNewLabel_1 = new JLabel("Tipo");
 		lblNewLabel_1.setBounds(106, 33, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		frmGeradorDeCustos.getContentPane().add(lblNewLabel_1);
 
 		txtQuantidadeComprada = new JTextField();
 		txtQuantidadeComprada.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtQuantidadeComprada.setBounds(209, 48, 78, 20);
-		frame.getContentPane().add(txtQuantidadeComprada);
+		frmGeradorDeCustos.getContentPane().add(txtQuantidadeComprada);
 		txtQuantidadeComprada.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Pre\u00E7o");
 		lblNewLabel_2.setBounds(301, 33, 46, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		frmGeradorDeCustos.getContentPane().add(lblNewLabel_2);
 
 		txtValorComprado = new JTextField();
 		txtValorComprado.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtValorComprado.setBounds(299, 48, 86, 20);
-		frame.getContentPane().add(txtValorComprado);
+		frmGeradorDeCustos.getContentPane().add(txtValorComprado);
 		txtValorComprado.setColumns(10);
 
 		txtQuantidadeUsada = new JTextField();
 		txtQuantidadeUsada.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtQuantidadeUsada.setColumns(10);
 		txtQuantidadeUsada.setBounds(397, 48, 78, 20);
-		frame.getContentPane().add(txtQuantidadeUsada);
+		frmGeradorDeCustos.getContentPane().add(txtQuantidadeUsada);
 
 		JLabel lbContador = new JLabel("0");
 		lbContador.setHorizontalAlignment(SwingConstants.CENTER);
-		lbContador.setBounds(497, 142, 72, 16);
-		frame.getContentPane().add(lbContador);
+		lbContador.setBounds(497, 130, 72, 16);
+		frmGeradorDeCustos.getContentPane().add(lbContador);
 
 		JLabel lbCustoTotal = new JLabel("R$ 0,00");
 		lbCustoTotal.setHorizontalAlignment(SwingConstants.CENTER);
-		lbCustoTotal.setBounds(494, 198, 75, 16);
-		frame.getContentPane().add(lbCustoTotal);
+		lbCustoTotal.setBounds(497, 186, 75, 16);
+		frmGeradorDeCustos.getContentPane().add(lbCustoTotal);
 
 		JButton btAdiciona = new JButton("Adiciona");
 		btAdiciona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					String nome = txtNome.getText().toUpperCase();
+					String nome = txtNome.getText().toUpperCase();//deixa o nome em maiúscula
 					String tipoUnidade = cbTipo.getSelectedItem().toString();
 					String tipoComprado = cbUnidadeComprada.getSelectedItem().toString();
-					double quantidadeComprada = Double.parseDouble(txtQuantidadeComprada.getText());
-					double valorComprado = Double.parseDouble(txtValorComprado.getText());
+					double quantidadeComprada = Double.parseDouble(txtQuantidadeComprada.getText().replace(",", "."));
+					double valorComprado = Double.parseDouble(txtValorComprado.getText().replace(",", "."));
 					String tipoUsado = cbUnidadeUsada.getSelectedItem().toString();
-					double quantidadeUsada = Double.parseDouble(txtQuantidadeUsada.getText());
+					double quantidadeUsada = Double.parseDouble(txtQuantidadeUsada.getText().replace(",", "."));
 
 					Product product = new Product(nome, tipoUnidade, tipoComprado, quantidadeComprada, valorComprado,
 							tipoUsado, quantidadeUsada);
@@ -172,12 +173,12 @@ public class Teste {
 			}
 		});
 		btAdiciona.setBounds(487, 29, 89, 23);
-		frame.getContentPane().add(btAdiciona);
+		frmGeradorDeCustos.getContentPane().add(btAdiciona);
 
 		JTextArea txtLista = new JTextArea();
 		txtLista.setFont(new Font("SansSerif", Font.PLAIN, 16));
-		txtLista.setBounds(10, 108, 428, 333);
-		frame.getContentPane().add(txtLista);
+		txtLista.setBounds(10, 108, 465, 358);
+		frmGeradorDeCustos.getContentPane().add(txtLista);
 
 		JButton btLimpa = new JButton("Limpa");
 		btLimpa.addActionListener(new ActionListener() {
@@ -189,7 +190,7 @@ public class Teste {
 			}
 		});
 		btLimpa.setBounds(487, 57, 89, 23);
-		frame.getContentPane().add(btLimpa);
+		frmGeradorDeCustos.getContentPane().add(btLimpa);
 
 		JButton btLista = new JButton("Listar");
 		btLista.addActionListener(new ActionListener() {
@@ -206,18 +207,18 @@ public class Teste {
 				}
 			}
 		});
-		btLista.setBounds(487, 92, 89, 23);
-		frame.getContentPane().add(btLista);
+		btLista.setBounds(487, 81, 89, 23);
+		frmGeradorDeCustos.getContentPane().add(btLista);
 
 		JLabel lblNewLabel_3 = new JLabel("Ingredientes");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBounds(487, 114, 89, 16);
-		frame.getContentPane().add(lblNewLabel_3);
+		frmGeradorDeCustos.getContentPane().add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Custo");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(507, 170, 55, 16);
-		frame.getContentPane().add(lblNewLabel_4);
+		lblNewLabel_4.setBounds(507, 158, 55, 16);
+		frmGeradorDeCustos.getContentPane().add(lblNewLabel_4);
 
 	}
 
