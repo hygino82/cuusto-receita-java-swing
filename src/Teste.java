@@ -246,7 +246,7 @@ public class Teste {
 				txtQuantidadeComprada.setText(null);
 				txtValorComprado.setText(null);
 				txtQuantidadeUsada.setText(null);
-
+				lista.clear();
 			}
 		});
 		btnova.setBackground(Color.GREEN);
