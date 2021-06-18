@@ -75,7 +75,6 @@ public class Teste {
 		frmGeradorDeCustos.getContentPane().add(lblNewLabel);
 
 		txtNome = new JTextField();
-		txtNome.setText("banha");
 		txtNome.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtNome.setBounds(10, 48, 86, 32);
 		frmGeradorDeCustos.getContentPane().add(txtNome);
@@ -115,7 +114,6 @@ public class Teste {
 		frmGeradorDeCustos.getContentPane().add(lblNewLabel_1);
 
 		txtQuantidadeComprada = new JTextField();
-		txtQuantidadeComprada.setText("3");
 		txtQuantidadeComprada.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtQuantidadeComprada.setBounds(209, 48, 78, 32);
 		frmGeradorDeCustos.getContentPane().add(txtQuantidadeComprada);
@@ -126,14 +124,12 @@ public class Teste {
 		frmGeradorDeCustos.getContentPane().add(lblNewLabel_2);
 
 		txtValorComprado = new JTextField();
-		txtValorComprado.setText("45");
 		txtValorComprado.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtValorComprado.setBounds(299, 48, 86, 32);
 		frmGeradorDeCustos.getContentPane().add(txtValorComprado);
 		txtValorComprado.setColumns(10);
 
 		txtQuantidadeUsada = new JTextField();
-		txtQuantidadeUsada.setText("0,5");
 		txtQuantidadeUsada.setFont(new Font("SansSerif", Font.PLAIN, 14));
 		txtQuantidadeUsada.setColumns(10);
 		txtQuantidadeUsada.setBounds(397, 48, 78, 32);
