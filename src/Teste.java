@@ -247,6 +247,8 @@ public class Teste {
 				txtValorComprado.setText(null);
 				txtQuantidadeUsada.setText(null);
 				lista.clear();
+				lbCustoTotal.setText("R$ 0,00");
+				lbContador.setText("0");
 			}
 		});
 		btnova.setBackground(Color.GREEN);
