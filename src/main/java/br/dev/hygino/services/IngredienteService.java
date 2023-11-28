@@ -31,4 +31,12 @@ public class IngredienteService {
         List<Ingrediente> lista = ingredienteRepository.findAll();
         return lista.stream().map(x -> new IngredienteDTO(x)).collect(Collectors.toList());
     }
+
+    public IngredienteDTO buscarPorId(Long id) {
+        var res = ingredienteRepository.findById(id);
+        if (!res.isPresent()) {
+            throw new IllegalArgumentException("Não existe ingrediente com o id: " + id);
+        }
+        return new IngredienteDTO(res.get());
+    }
 }

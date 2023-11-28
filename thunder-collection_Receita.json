@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Receita",
-    "dateExported": "2023-11-28T21:44:58.591Z",
+    "dateExported": "2023-11-28T22:01:25.861Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -34,6 +34,20 @@
             "sortNum": 20000,
             "created": "2023-11-28T21:44:05.554Z",
             "modified": "2023-11-28T21:44:12.697Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6fd4ed5f-271e-4ef4-9596-15a101dac84d",
+            "colId": "e69bb653-9dd1-4566-940a-f3d4345346cb",
+            "containerId": "",
+            "name": "Buscar por Id",
+            "url": "http://localhost:8080/api/v1/ingrediente/2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-11-28T22:00:31.688Z",
+            "modified": "2023-11-28T22:01:21.787Z",
             "headers": [],
             "params": [],
             "tests": []
