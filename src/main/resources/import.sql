@@ -1,1 +1,2 @@
 INSERT INTO tb_ingrediente(nome,descricao,valor_embalagem,quantidade_embalagem,quantidade_utilizada,tipo,unidade) VALUES('Açúcar','Açúcar Cristal Alto Alegre',20.0,5.0,2.0,0,0);
+INSERT INTO tb_ingrediente(nome,descricao,valor_embalagem,quantidade_embalagem,quantidade_utilizada,tipo,unidade) VALUES('Leite em Pó','Leite em Pó Ninho',42.28,750,250,0,1);

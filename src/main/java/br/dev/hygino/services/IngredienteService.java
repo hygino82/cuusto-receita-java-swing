@@ -1,5 +1,9 @@
 package br.dev.hygino.services;
 
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import br.dev.hygino.dto.IngredienteDTO;
@@ -21,5 +25,10 @@ public class IngredienteService {
         Ingrediente entity = new Ingrediente(dto);
         entity = ingredienteRepository.save(entity);
         return new IngredienteDTO(entity);
+    }
+
+    public List<IngredienteDTO> buscarTodos() {
+        List<Ingrediente> lista = ingredienteRepository.findAll();
+        return lista.stream().map(x -> new IngredienteDTO(x)).collect(Collectors.toList());
     }
 }

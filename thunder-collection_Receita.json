@@ -1,0 +1,42 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Receita",
+    "dateExported": "2023-11-28T21:44:58.591Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b9e62017-6833-4ada-bc4f-32453d97c81f",
+            "colId": "e69bb653-9dd1-4566-940a-f3d4345346cb",
+            "containerId": "",
+            "name": "Inserir",
+            "url": "http://localhost:8080/api/v1/ingrediente",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-11-28T21:18:39.560Z",
+            "modified": "2023-11-28T21:23:18.187Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Açúcar\",\n  \"descricao\": \"Açúcar Cristal\",\n  \"valorEmbalagem\": 20.0,\n  \"quantidadeEmbalagem\": 5.0,\n  \"quantidadeUtilizada\": 2.0,\n  \"tipo\": \"solido\",\n  \"unidade\": \"kg\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1b90dc39-1a4e-4462-9995-40f10c4e4fb7",
+            "colId": "e69bb653-9dd1-4566-940a-f3d4345346cb",
+            "containerId": "",
+            "name": "Buscar todos",
+            "url": "http://localhost:8080/api/v1/ingrediente",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-11-28T21:44:05.554Z",
+            "modified": "2023-11-28T21:44:12.697Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
