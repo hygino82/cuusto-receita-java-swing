@@ -2,6 +2,7 @@ package br.dev.hygino.entities;
 
 import java.io.Serializable;
 
+import br.dev.hygino.dto.InserirIngredienteDTO;
 import br.dev.hygino.types.Tipo;
 import br.dev.hygino.types.Unidade;
 import jakarta.persistence.Entity;
@@ -36,10 +37,23 @@ public class Ingrediente implements Serializable {
     private Double quantidadeUtilizada;
 
     @NotNull
-    private Unidade Unidade;
+    private Unidade unidade;
 
     @NotNull
     private Tipo tipo;
+
+    public Ingrediente() {
+    }
+
+    public Ingrediente(InserirIngredienteDTO dto) {
+        nome = dto.nome();
+        descricao = dto.descricao();
+        valorEmbalagem = dto.valorEmbalagem();
+        quantidadeEmbalagem = dto.quantidadeEmbalagem();
+        quantidadeUtilizada = dto.quantidadeUtilizada();
+        unidade = Unidade.valueOf(dto.unidade().toUpperCase());
+        tipo = Tipo.valueOf(dto.tipo().toUpperCase());
+    }
 
     public Long getId() {
         return id;
@@ -90,11 +104,11 @@ public class Ingrediente implements Serializable {
     }
 
     public Unidade getUnidade() {
-        return Unidade;
+        return unidade;
     }
 
     public void setUnidade(Unidade unidade) {
-        Unidade = unidade;
+        this.unidade = unidade;
     }
 
     public Tipo getTipo() {
