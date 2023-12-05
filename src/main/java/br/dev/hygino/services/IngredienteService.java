@@ -39,4 +39,8 @@ public class IngredienteService {
         }
         return new IngredienteDTO(res.get());
     }
+
+    public void removerPorid(Long id) {
+        ingredienteRepository.deleteById(id);
+    }
 }
