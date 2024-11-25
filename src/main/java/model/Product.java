@@ -1,21 +1,20 @@
-package entities;
+package model;
 
-public class Product {
+public final class Product {
 
     private String nome;
     private String tipoUnidade;
     private String tipoComprado;
-    private Double quantidadeComprada;// peso, volume também só pra abreviar
+    private Double quantidadeComprada;// peso, volume tambÃ©m sÃ³ pra abreviar
     private Double valorComprado;
     private String tipoUsado;
     private Double quantidadeUsada;
 
     public Product() {
-
     }
 
     public Product(String nome, String tipoUnidade, String tipoComprado, Double quantidadeComprada,
-            Double valorComprado, String tipoUsado, Double quantidadeUsada) {
+                   Double valorComprado, String tipoUsado, Double quantidadeUsada) {
         this.nome = nome;
         this.tipoUnidade = tipoUnidade;
         this.tipoComprado = tipoComprado;
@@ -86,7 +85,7 @@ public class Product {
         if (tipoComprado == tipoUsado) {
             custoUnitario = valorComprado / quantidadeComprada;
 
-        } else if ((tipoComprado == "Kg" && tipoUsado == "g") || (tipoComprado == "L" && tipoUsado == "mL")) {
+        } else if ((tipoComprado.equals("Kg") && tipoUsado.equals("g")) || (tipoComprado.equals("L") && tipoUsado.equals("mL"))) {
             custoUnitario = valorComprado / (quantidadeComprada * 1000.0);
 
         } else {
@@ -102,14 +101,10 @@ public class Product {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        //Double custoUnidade = valorComprado / quantidadeComprada;
         sb.append(nome + "\n");
         sb.append("Embalagem de " + String.format("%.2f", quantidadeComprada) + tipoComprado + " por R$"
                 + String.format("%.2f", valorComprado) + "\n");
-       /* sb.append("O custo por " + tipoComprado + " é R$" + String.format("%.2f", custoUnidade) + "\n");
-        if (tipoComprado != tipoUsado) {
-            sb.append("O custo por " + tipoUsado + " é R$" + String.format("%.5f", custoPorUnidade()) + "\n");
-        }*/
+
         sb.append("Foi utilizado " + String.format("%.2f", quantidadeUsada) + tipoUsado + " a um custo de R$"
                 + String.format("%.2f", geraCusto()) + "\n");
         return sb.toString();

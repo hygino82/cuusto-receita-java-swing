@@ -1,3 +1,6 @@
+package application;
+
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -5,8 +8,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,33 +18,25 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import entities.Product;
-import java.awt.Color;
+import model.Product;
 
-public class Teste {
+public final class Program {
 
-	private List<Product> lista = new ArrayList<>();
+	private final List<Product> lista = new ArrayList<>();
 	private Integer contador = 0;
 	private Double custoTotal = 0.0;
-//	private String[] tipo = { "SÓLIDO", "LÍQUIDO" };
-//	private String[] unidadesVolume = { "L", "mL" };
-//    private String[] unidadesPeso = { "Kg", "g" };
 
 	private JFrame frmGeradorDeCustos;
 	private JTextField txtNome;
 	private JTextField txtQuantidadeComprada;
 	private JTextField txtValorComprado;
 	private JTextField txtQuantidadeUsada;
-	private final Action action = new SwingAction();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Teste window = new Teste();
+					Program window = new Program();
 					window.frmGeradorDeCustos.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +48,7 @@ public class Teste {
 	/**
 	 * Create the application.
 	 */
-	public Teste() {
+	public Program() {
 		initialize();
 
 	}
@@ -90,7 +83,7 @@ public class Teste {
 		cbUnidadeUsada.setBounds(397, 30, 78, 20);
 		frmGeradorDeCustos.getContentPane().add(cbUnidadeUsada);
 
-//escolha do tipo de unidade
+		// escolha do tipo de unidade
 		JComboBox<String> cbTipo = new JComboBox<String>();
 		cbTipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -119,7 +112,7 @@ public class Teste {
 		frmGeradorDeCustos.getContentPane().add(txtQuantidadeComprada);
 		txtQuantidadeComprada.setColumns(10);
 
-		JLabel lblNewLabel_2 = new JLabel("Pre\u00E7o");
+		JLabel lblNewLabel_2 = new JLabel("PreÃ§o");
 		lblNewLabel_2.setBounds(301, 33, 46, 14);
 		frmGeradorDeCustos.getContentPane().add(lblNewLabel_2);
 
@@ -157,7 +150,7 @@ public class Teste {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					String nome = txtNome.getText().toUpperCase();// deixa o nome em maiúscula
+					String nome = txtNome.getText().toUpperCase();// deixa o nome em maiÃºscula
 					String tipoUnidade = cbTipo.getSelectedItem().toString();
 					String tipoComprado = cbUnidadeComprada.getSelectedItem().toString();
 					double quantidadeComprada = Double.parseDouble(txtQuantidadeComprada.getText().replace(",", "."));
@@ -174,7 +167,7 @@ public class Teste {
 					custoTotal += product.geraCusto();
 					lbCustoTotal.setText("R$" + String.format("%.2f", custoTotal));
 				} catch (NumberFormatException exception) {
-					System.out.println("Formato numérico inválido");
+					System.out.println("Formato numÃ©rico invÃ¡lido");
 				} catch (Exception exception) {
 					exception.printStackTrace();
 				}
@@ -193,9 +186,11 @@ public class Teste {
 			}
 		});
 		btLimpa.setBounds(487, 54, 89, 23);
+		btLimpa.setBackground(Color.ORANGE);
 		frmGeradorDeCustos.getContentPane().add(btLimpa);
 
 		JButton btLista = new JButton("Listar");
+		
 		btLista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (lista.size() > 0) {
@@ -209,10 +204,10 @@ public class Teste {
 						txtLista.append("------------------------------------------\n");
 					}
 					txtLista.append("O custo total foi de R$" + String.format("%.2f", somaTotal));
-
 				}
 			}
 		});
+		
 		btLista.setBounds(487, 78, 89, 23);
 		frmGeradorDeCustos.getContentPane().add(btLista);
 
@@ -254,18 +249,5 @@ public class Teste {
 		btnova.setBackground(Color.GREEN);
 		btnova.setBounds(487, 6, 89, 23);
 		frmGeradorDeCustos.getContentPane().add(btnova);
-
-	}
-
-	private class SwingAction extends AbstractAction {
-		private static final long serialVersionUID = 1L;
-
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-		}
 	}
 }
